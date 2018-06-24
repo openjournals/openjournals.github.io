@@ -1,0 +1,31 @@
+---
+layout: pagefullwidth
+title: "People"
+logo: img/logos/oj_logo.png
+description: ""
+header-img: "img/home-bg.jpg"
+ordernumber: 8
+---
+
+<div class="row">
+	<h1>Steering council</h1> <a name="steering"></a>
+	<!--Sorting on role makes FOUNDER appear first  -->
+	{% assign sorted_people = site.people | sort:"role" %}
+	{% for people in sorted_people %} {% if people.type == "lead" %}
+		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+			{% include addPerson.html people=site.people %}
+		</div>
+	{% endif %}{% endfor %}
+</div>
+
+<hr>
+
+<!-- <div class="row">
+	<h2>Production team</h2> <a name="production"></a>
+	{% for people in site.people %} {% if people.type == "production" %}
+		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+
+			{% include addPerson.html people=site.people %}
+		</div>
+	{% endif %}{% endfor %}
+</div> -->
